@@ -11,3 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.main-container {
+  width: 1000px;
+}
+
+@media(max-width: 992px) {
+  width: 100%;
+  padding: 20px;
+}
+
+@media(max-width: 768px) {
+  width: 100%;
+  padding: 20px;
+}
+
+
+p {
+  font-weight: 300;
+}
