@@ -1,5 +1,5 @@
 class Cocktail < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
   mount_uploader :photo, PhotoUploader
