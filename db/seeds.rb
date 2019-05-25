@@ -13,6 +13,7 @@ User.destroy_all
 Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
+Recipe.destroy_all
 
 # ----------------------------------------------------------------------
 
@@ -57,6 +58,8 @@ cocktails.each do |cocktail|
   cocktail_id_serialized = open(url_cocktail).read
   cocktail_id = JSON.parse(cocktail_id_serialized)["drinks"][0]
 
+puts "Create doses"
+
   Dose.create!(quantity: cocktail_id["strMeasure1"],
     ingredient_id: Ingredient.where(name: cocktail_id["strIngredient1"])[0].id,
     cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient1"])[0] != nil
@@ -72,6 +75,9 @@ cocktails.each do |cocktail|
   Dose.create!(quantity: cocktail_id["strMeasure4"],
     ingredient_id: Ingredient.where(name: cocktail_id["strIngredient4"])[0].id,
     cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient4"])[0] != nil
+
+puts "Create recipe"
+  Recipe.create!(description: cocktail_id["strInstructions"], cocktail_id: new_cocktail[:id])
 end
 
 # ----------------------------------------------------------------------
