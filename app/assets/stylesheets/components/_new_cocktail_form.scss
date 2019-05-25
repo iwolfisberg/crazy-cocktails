@@ -3,3 +3,13 @@
     font-weight: 300;
   }
 }
+
+.doses-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+}
+
+.select2-selection {
+  font-weight: 300;
+}
