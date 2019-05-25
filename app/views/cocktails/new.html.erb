@@ -1,0 +1,10 @@
+<div class="main-container">
+  <div class="form-container">
+    <h2>Add a new cocktail</h2>
+    <%= simple_form_for @cocktail do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+    <% end %>
+  </div>
+</div>
