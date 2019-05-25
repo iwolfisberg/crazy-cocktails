@@ -3,6 +3,12 @@
     <h2>Add a new cocktail</h2>
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
+      <div class="doses-form">
+        <%= f.fields_for :doses do |h| %>
+          <%= h.input :quantity %>
+          <%= h.association :ingredient %>
+        <% end %>
+      </div>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
       <%= f.submit "Add new cocktail", class: "btn btn-secondary mt-2" %>
