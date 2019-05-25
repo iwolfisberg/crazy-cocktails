@@ -1,11 +1,18 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dotvqg92r/image/upload/v1558803435/victoria-kubiaki-1491106-unsplash_jw4nbi.jpg);">
+  <div class="main-container banner-content">
+    <h1>Crazy cocktails</h1>
+    <p>Find your favourite cocktails here: </p>
+  </div>
+</div>
+
 <div class="main-container">
-  <h1>Tous les cocktails</h1>
+  <h2>Tous les cocktails</h2>
   <div class="cocktail-cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
         <div class="cocktail-card">
           <div class="cocktail-card-photo">
-            <%= cl_image_tag(cocktail.photo, :height=>250, :crop=>"scale") %>
+            <%= cl_image_tag(cocktail.photo, height: 250, crop: "scale") %>
           </div>
           <div class="cocktail-card-description">
             <p><%= cocktail.name %></p>
