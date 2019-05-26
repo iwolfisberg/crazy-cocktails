@@ -1,6 +1,7 @@
 class Cocktail < ApplicationRecord
   belongs_to :user
-  has_one :recipe, dependent: :destroy
+  has_many :recipes, dependent: :destroy
+  accepts_nested_attributes_for :recipes
   has_many :doses, dependent: :destroy
   accepts_nested_attributes_for :doses
   has_many :ingredients, through: :doses

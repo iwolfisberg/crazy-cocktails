@@ -4,10 +4,16 @@
   }
 }
 
-.doses-form {
+.form-dose {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 3%;
   grid-column-gap: 15px;
+  .fa-plus {
+    align-self: center;
+  }
+  a {
+    display: flex;
+  }
 }
 
 .select2-selection {

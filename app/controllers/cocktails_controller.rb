@@ -12,11 +12,13 @@ class CocktailsController < ApplicationController
   def show
     @cocktail = Cocktail.find(params[:id])
     @doses = @cocktail.doses
+    @recipes = @cocktail.recipes
   end
 
   def new
     @cocktail = Cocktail.new
     @cocktail.doses.build
+    @cocktail.recipes.build
   end
 
   def create
@@ -33,6 +35,6 @@ class CocktailsController < ApplicationController
   private
 
   def cocktail_params
-    params.require(:cocktail).permit(:name, :photo, doses_attributes: [:doses, :quantity, :ingredient_id])
+    params.require(:cocktail).permit(:name, :photo, doses_attributes: [:doses, :quantity, :ingredient_id], recipe_attributes: [:recipes, :description])
   end
 end

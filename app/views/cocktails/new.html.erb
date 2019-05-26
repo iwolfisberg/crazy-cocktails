@@ -3,11 +3,19 @@
     <h2>Add a new cocktail</h2>
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
-      <div class="doses-form">
-        <%= f.fields_for :doses do |h| %>
-          <%= h.input :quantity %>
-          <%= h.association :ingredient %>
-        <% end %>
+      <%= f.fields_for :recipes do |h| %>
+        <%= h.input :description, label: "Recipe", :as => :text, input_html: { rows: 3 } %>
+      <% end %>
+      <div class="form-doses">
+        <div class="form-dose">
+          <%= f.fields_for :doses, class: "duplicatable_nested_form" do |h| %>
+            <%= h.input :quantity %>
+            <%= h.association :ingredient %>
+          <% end %>
+          <%= link_to '#', class: 'duplicate_nested_form' do %>
+            <i class="fas fa-plus"></i>
+          <% end %>
+        </div>
       </div>
       <%= f.input :photo %>
       <%= f.input :photo_cache, as: :hidden %>
