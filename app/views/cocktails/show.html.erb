@@ -2,9 +2,7 @@
   <h2><%= @cocktail.name %></h2>
   <%= cl_image_tag( @cocktail.photo, height: 350, crop: "scale") %>
   <div class="recipe-card">
-    <% @recipes.each do |recipe| %>
-      <p><%= recipe.description %></p>
-    <% end %>
+    <p><%= @cocktail.description %></p>
     <% @doses.each do |dose| %>
       <p><%= dose.quantity %> <%= dose.ingredient.name %></p>
     <% end %>
