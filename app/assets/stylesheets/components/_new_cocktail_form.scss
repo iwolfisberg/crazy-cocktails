@@ -4,12 +4,23 @@
   }
 }
 
-.doses-form {
+.form-dose {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 3%;
   grid-column-gap: 15px;
+  .fa-plus {
+    align-self: center;
+    color: $gray;
+    opacity: .6;
+  }
+  a {
+    display: flex;
+  }
+  .fa-plus:hover {
+    opacity: .9;
+  }
 }
 
-.select2-selection {
+.select2-selection, #cocktail_description {
   font-weight: 300;
 }

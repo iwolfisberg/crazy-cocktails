@@ -50,12 +50,15 @@ cocktail_serialized = open(url).read
 cocktails = JSON.parse(cocktail_serialized)["drinks"]
 
 cocktails.each do |cocktail|
-  new_cocktail = Cocktail.create!(name: cocktail["strDrink"], remote_photo_url: cocktail["strDrinkThumb"], user_id: users.sample[:id])
 
   id = cocktail["idDrink"]
   url_cocktail = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{id}"
   cocktail_id_serialized = open(url_cocktail).read
   cocktail_id = JSON.parse(cocktail_id_serialized)["drinks"][0]
+
+  new_cocktail = Cocktail.create!(name: cocktail_id["strDrink"],description: cocktail_id["strInstructions"], remote_photo_url: cocktail_id["strDrinkThumb"], user_id: users.sample[:id])
+
+  puts "Create doses"
 
   Dose.create!(quantity: cocktail_id["strMeasure1"],
     ingredient_id: Ingredient.where(name: cocktail_id["strIngredient1"])[0].id,
