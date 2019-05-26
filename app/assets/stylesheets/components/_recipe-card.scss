@@ -2,26 +2,15 @@
   display: grid;
   grid-template-columns: auto 1fr;
   grid-column-gap: 15px;
-  .recipe-card-info {
-    // display: flex;
-    // justify-content: space-between;
-  }
 }
-
-// @media(max-width: 992px) {
-//   .recipe-card {
-//     grid-template-columns: 1fr 1fr;
-//   }
-// }
 
 @media(max-width: 768px) {
   .recipe-card {
-    grid-template-columns: auto;
-    justify-items: center;
-    align-items: center;
+    grid-template-columns: 1fr;
     grid-row-gap: 15px;
-    grid-column-gap: 0;
-    width: 80%;
+    img {
+      justify-self: center;
+    }
   }
 }
 
