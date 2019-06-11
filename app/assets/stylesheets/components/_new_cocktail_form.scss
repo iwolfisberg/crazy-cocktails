@@ -6,13 +6,8 @@
 
 .form-dose {
   display: grid;
-  grid-template-columns: 1fr 1fr 3%;
+  grid-template-columns: 1fr 1fr 10%;
   grid-column-gap: 15px;
-  .fa-plus {
-    align-self: center;
-    color: $gray;
-    opacity: .6;
-  }
   a {
     display: flex;
   }
