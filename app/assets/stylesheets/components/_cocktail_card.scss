@@ -1,5 +1,6 @@
 h2 {
   margin-bottom: 30px;
+  margin-left: 15px;
 }
 
 .cocktail-cards {
@@ -12,9 +13,13 @@ h2 {
 
 .cocktail-card {
   background: white;
-  width: 250px;
+  width: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   .cocktail-card-description {
     padding: 15px;
+  }
+  .cocktail-card-photo {
+    width: 100%;
   }
 }
 

@@ -7,13 +7,13 @@
 </div>
 
 <div class="main-container">
-  <h2>Tous les cocktails</h2>
+  <h2>All cocktails</h2>
   <div class="cocktail-cards">
     <% @cocktails.each do |cocktail| %>
       <%= link_to cocktail_path(cocktail) do %>
         <div class="cocktail-card">
           <div class="cocktail-card-photo">
-            <%= cl_image_tag(cocktail.photo, width: 250, crop: "scale") %>
+            <%= cl_image_tag(cocktail.photo, width: 350, crop: "scale") %>
           </div>
           <div class="cocktail-card-description">
             <p><%= cocktail.name %></p>
