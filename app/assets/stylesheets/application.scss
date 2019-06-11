@@ -13,26 +13,37 @@
 @import "pages/index";
 
 .main-container {
-  width: 100%;
-  margin: 50px auto 50px auto;
+  width: 1200px;
+  margin: 50px auto;
+}
+
+.main-container-padding {
   padding-top: 50px;
 }
 
 @media(max-width: 992px) {
   .main-container {
-    padding: 50px 20px 0 20px;
+    width: 90%;
+    h2 {
+      margin-left: 50px;
+    }
   }
 }
 
 @media(max-width: 768px) {
   .main-container h2 {
     text-align: center;
+    margin-left: 0
   }
 }
 
 .form-container {
   width: 500px;
   margin: 0 auto;
+}
+
+h1 {
+  font-size: 3.5rem;
 }
 
 
