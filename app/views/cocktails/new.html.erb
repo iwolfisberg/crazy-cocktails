@@ -5,18 +5,21 @@
       <%= f.input :name %>
       <%= f.input :description, label: "Recipe", :as => :text, input_html: { rows: 3 } %>
 
-      <h3>Doses:</h3>
         <div id='doses' class="form-doses">
           <%= f.simple_fields_for :doses do |dose| %>
             <%= render 'shared/doses_fields', :f => dose %>
           <% end %>
           <div class='links'>
-            <%= link_to_add_association 'add dose', f, :doses, html_options = { partial: 'shared/doses_fields' } %>
+            <%= link_to_add_association f, :doses, html_options = { partial: 'shared/doses_fields' } do %>
+              <p><i class="fas fa-plus"> Add new dose</i></p>
+            <% end %>
           </div>
         </div>
 
-      <%= f.input :photo %>
+      <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: 'Upload a 🍹 photo'  %>
+      <%= image_tag "", width: 250, class: "hidden", id: "photo-preview" %>
       <%= f.input :photo_cache, as: :hidden %>
+
       <%= f.submit "Add new cocktail", class: "btn btn-secondary mt-2" %>
     <% end %>
   </div>
