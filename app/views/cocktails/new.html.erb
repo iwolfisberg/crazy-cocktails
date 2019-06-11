@@ -1,22 +1,25 @@
 <div class="main-container main-container-padding">
   <div class="form-container">
-    <h2>Add a new cocktail</h2>
+    <h2>Add new cocktail</h2>
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
       <%= f.input :description, label: "Recipe", :as => :text, input_html: { rows: 3 } %>
-      <div class="form-doses">
-        <div class="form-dose">
-          <%= f.fields_for :doses, class: "duplicatable_nested_form" do |h| %>
-            <%= h.input :quantity %>
-            <%= h.association :ingredient %>
+
+        <div id='doses' class="form-doses">
+          <%= f.simple_fields_for :doses do |dose| %>
+            <%= render 'shared/doses_fields', :f => dose %>
           <% end %>
-          <%= link_to '#', class: 'duplicate_nested_form' do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
+          <div class='links'>
+            <%= link_to_add_association f, :doses, html_options = { partial: 'shared/doses_fields' } do %>
+              <p><i class="fas fa-plus"> Add new dose</i></p>
+            <% end %>
+          </div>
         </div>
-      </div>
-      <%= f.input :photo %>
+
+      <%= f.input :photo, input_html: { class: 'd-none', id: 'photo-input' }, label_html: { class: 'upload-photo'}, label: 'Upload a 🍹 photo'  %>
+      <%= image_tag "", width: 250, class: "hidden", id: "photo-preview" %>
       <%= f.input :photo_cache, as: :hidden %>
+
       <%= f.submit "Add new cocktail", class: "btn btn-secondary mt-2" %>
     <% end %>
   </div>

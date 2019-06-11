@@ -1,0 +1,7 @@
+<div class='nested-fields form-dose'>
+  <%= f.input :quantity %>
+  <%= f.association :ingredient %>
+  <%= link_to_remove_association f do %>
+    <i class="fas fa-trash-alt"></i>
+  <% end %>
+</div>

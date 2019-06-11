@@ -6,21 +6,45 @@
 
 .form-dose {
   display: grid;
-  grid-template-columns: 1fr 1fr 3%;
+  grid-template-columns: 1fr 1fr 10%;
   grid-column-gap: 15px;
-  .fa-plus {
+  .fa-trash-alt {
     align-self: center;
-    color: $gray;
-    opacity: .6;
+  }
+  .fa-trash-alt:hover {
+    opacity: .7;
+    color: $pink;
   }
   a {
     display: flex;
   }
-  .fa-plus:hover {
-    opacity: .9;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  p {
+    text-align: center;
   }
+}
+
+.fa-plus:hover {
+  opacity: .7;
+  color: $pink;
 }
 
 .select2-selection, #cocktail_description {
   font-weight: 300;
+}
+
+.upload-photo {
+  border: #d3d3d3 solid 1px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 2px;
+  font-weight: 500 !important;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
