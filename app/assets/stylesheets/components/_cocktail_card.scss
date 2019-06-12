@@ -8,11 +8,19 @@
     background: white;
     width: 100%;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    .cocktail-card-description {
-      padding: 15px;
-    }
     .cocktail-card-photo {
       width: 100%;
+    }
+    .cocktail-card-desc-review {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px;
+      .cocktail-card-description {
+        width: 50%;
+      }
+      .cocktail-card-stars > p > .stars {
+        color: $pink;
+      }
     }
   }
 }
