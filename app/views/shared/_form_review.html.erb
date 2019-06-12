@@ -1,10 +1,8 @@
 <div class="form-container">
   <h4 class="title pb-2">Review for <%= @cocktail.name %></h4>
-  <div class="form-cocktail">
-    <%= simple_form_for [@cocktail, @review] do |f| %>
-      <%= f.input :content, as: :text, label: 'Your review (max. 120 characters)', input_html: { maxlength: 120, rows: 3 } %>
-      <%= f.input :rating, collection: 1..5 %>
-      <%= f.submit "Create review", class:"btn btn-secondary" %>
-    <% end %>
-  </div>
+  <%= simple_form_for [@cocktail, @review] do |f| %>
+    <%= f.input :content, as: :text, label: 'Your review (max. 120 characters)', input_html: { maxlength: 120, rows: 3 } %>
+    <%= f.input :rating, collection: 1..5 %>
+    <%= f.submit "Create review", class:"btn btn-secondary" %>
+  <% end %>
 </div>

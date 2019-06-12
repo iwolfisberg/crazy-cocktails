@@ -1,27 +1,22 @@
-.cocktail-username {
-  margin-bottom: 30px;
-  margin-left: 15px;
-}
-
 .cocktail-cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
   justify-items: center;
   align-items: center;
+  .cocktail-card {
+    background: white;
+    width: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    .cocktail-card-description {
+      padding: 15px;
+    }
+    .cocktail-card-photo {
+      width: 100%;
+    }
+  }
 }
 
-.cocktail-card {
-  background: white;
-  width: 100%;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  .cocktail-card-description {
-    padding: 15px;
-  }
-  .cocktail-card-photo {
-    width: 100%;
-  }
-}
 
 @media(max-width: 992px) {
   .cocktail-cards {
