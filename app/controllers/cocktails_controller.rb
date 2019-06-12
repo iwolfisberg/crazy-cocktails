@@ -7,6 +7,8 @@ class CocktailsController < ApplicationController
     else
       @cocktails = Cocktail.all
     end
+
+    @sum ||= 0
   end
 
   def show

@@ -15,9 +15,28 @@
           <div class="cocktail-card-photo">
             <%= cl_image_tag(cocktail.photo, width: 350, crop: "scale") %>
           </div>
-          <div class="cocktail-card-description">
-            <p><%= cocktail.name %></p>
+          <div class="cocktail-card-desc-review">
+            <div class="cocktail-card-description">
+              <p><%= cocktail.name %></p>
+            </div>
+
+            <% cocktail.reviews.each { |review| @sum += review.rating } %>
+            <% @number_of_stars = (@sum / cocktail.reviews.size) if cocktail.reviews.size > 0 %>
+            <div class="cocktail-card-stars">
+              <% if @number_of_stars.positive? %>
+                <p><% @number_of_stars.times do %><i class="stars fas fa-star"></i><% end %>
+                  <% if cocktail.reviews.size == 1 %>
+                    (<%= cocktail.reviews.size %> review)
+                  <% else %>
+                    (<%= cocktail.reviews.size %> reviews)
+                  <% end %>
+                </p>
+              <% end %>
+              <% @sum = 0 %>
+              <% @number_of_stars = 0 %>
+            </div>
           </div>
+
         </div>
       <% end %>
     <% end %>

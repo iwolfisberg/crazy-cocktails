@@ -13,6 +13,7 @@ User.destroy_all
 Cocktail.destroy_all
 Ingredient.destroy_all
 Dose.destroy_all
+Review.destroy_all
 
 # ----------------------------------------------------------------------
 
@@ -55,6 +56,13 @@ def create_doses(quantity, ingredient, cocktail)
     cocktail_id: cocktail)
 end
 
+def create_reviews(cocktail_id)
+  content_array = ["Great cocktail!", "Tried it, not convinced...", "Thanks for the recipe !", "Ooh, got me really drunk ;)"]
+  Review.create!(cocktail_id: cocktail_id,
+    content: content_array.sample,
+    rating: rand(1..5))
+end
+
 cocktails.each do |cocktail|
 
   id = cocktail["idDrink"]
@@ -63,6 +71,12 @@ cocktails.each do |cocktail|
   cocktail_id = JSON.parse(cocktail_id_serialized)["drinks"][0]
 
   new_cocktail = Cocktail.create!(name: cocktail_id["strDrink"],description: cocktail_id["strInstructions"], remote_photo_url: cocktail_id["strDrinkThumb"], user_id: users.sample[:id])
+
+  puts "Create reviews"
+
+  rand(1..5).times do
+    create_reviews(new_cocktail[:id])
+  end
 
   puts "Create doses"
 
