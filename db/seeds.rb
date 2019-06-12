@@ -18,15 +18,15 @@ Dose.destroy_all
 
 puts "Create users"
 
-def create_user(email, password)
-  User.create!(email: email, password: password)
+def create_user(email, password, username)
+  User.create!(email: email, password: password, username: username)
 end
 
 users = [
-  create_user('validatesCocktail1@gmail.com', 'secret'),
-  create_user('validatesCocktail2@gmail.com', 'secret'),
-  create_user('validatesCocktail3@gmail.com', 'secret'),
-  create_user('validatesCocktail4@gmail.com', 'secret')
+  create_user('validatesCocktail1@gmail.com', 'secret', 'one'),
+  create_user('validatesCocktail2@gmail.com', 'secret', 'two'),
+  create_user('validatesCocktail3@gmail.com', 'secret', 'three'),
+  create_user('validatesCocktail4@gmail.com', 'secret', 'four')
 ]
 
 # ----------------------------------------------------------------------
