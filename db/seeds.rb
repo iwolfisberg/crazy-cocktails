@@ -49,6 +49,12 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=Cocktail'
 cocktail_serialized = open(url).read
 cocktails = JSON.parse(cocktail_serialized)["drinks"]
 
+def create_doses(quantity, ingredient, cocktail)
+  Dose.create!(quantity: quantity,
+    ingredient_id: ingredient.id,
+    cocktail_id: cocktail)
+end
+
 cocktails.each do |cocktail|
 
   id = cocktail["idDrink"]
@@ -60,21 +66,18 @@ cocktails.each do |cocktail|
 
   puts "Create doses"
 
-  Dose.create!(quantity: cocktail_id["strMeasure1"],
-    ingredient_id: Ingredient.where(name: cocktail_id["strIngredient1"])[0].id,
-    cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient1"])[0] != nil
-
-  Dose.create!(quantity: cocktail_id["strMeasure2"],
-    ingredient_id: Ingredient.where(name: cocktail_id["strIngredient2"])[0].id,
-    cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient2"])[0] != nil
-
-  Dose.create!(quantity: cocktail_id["strMeasure3"],
-    ingredient_id: Ingredient.where(name: cocktail_id["strIngredient3"])[0].id,
-    cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient3"])[0] != nil
-
-  Dose.create!(quantity: cocktail_id["strMeasure4"],
-    ingredient_id: Ingredient.where(name: cocktail_id["strIngredient4"])[0].id,
-    cocktail_id: new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient4"])[0] != nil
+  create_doses(cocktail_id["strMeasure1"],
+    Ingredient.where(name: cocktail_id["strIngredient1"])[0],
+    new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient1"])[0] != nil
+  create_doses(cocktail_id["strMeasure2"],
+    Ingredient.where(name: cocktail_id["strIngredient2"])[0],
+    new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient2"])[0] != nil
+  create_doses(cocktail_id["strMeasure3"],
+    Ingredient.where(name: cocktail_id["strIngredient3"])[0],
+    new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient3"])[0] != nil
+  create_doses(cocktail_id["strMeasure4"],
+    Ingredient.where(name: cocktail_id["strIngredient4"])[0],
+    new_cocktail[:id]) if Ingredient.where(name: cocktail_id["strIngredient4"])[0] != nil
 end
 
 # ----------------------------------------------------------------------

@@ -1,9 +1,3 @@
-.new_cocktail {
-  label, input {
-    font-weight: 300;
-  }
-}
-
 .form-dose {
   display: grid;
   grid-template-columns: 1fr 1fr 10%;
@@ -26,6 +20,14 @@
   margin-bottom: 15px;
   p {
     text-align: center;
+  }
+}
+
+// Setup simple_form
+
+.new_cocktail {
+  label, input {
+    font-weight: 300;
   }
 }
 
